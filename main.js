@@ -17,7 +17,6 @@ function init() {
 
   /* ボックスのサイズ決定、メッシュ、追加 */
   const geometry = new THREE.BoxGeometry(2, 2, 2);
-  const material = new THREE.MeshBasicMaterial({ color: 0x0000ff });
 
   const texture = new THREE.TextureLoader().load("textures/renga.png");
   const material = new THREE.MeshBasicMaterial({ map: texture });
