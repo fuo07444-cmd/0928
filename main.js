@@ -1,5 +1,5 @@
 let scene, camera, renderer;
-let cube, cylinder, pyramid;
+let cube, cylinder, cone;
 
 function init() {
   scene = new THREE.Scene();
@@ -31,12 +31,12 @@ function init() {
   cylinder.position.x = 0;
   scene.add(cylinder);
 
-  // --- 角錐（円錐を使って近い形に） ---
-  const pyrGeometry = new THREE.ConeGeometry(1.5, 2, 4);
-  const pyrMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-  pyramid = new THREE.Mesh(pyrGeometry, pyrMaterial);
-  pyramid.position.x = 3;
-  scene.add(pyramid);
+  // --- 円錐（Cone） ---
+  const coneGeometry = new THREE.ConeGeometry(1.5, 2, 32);
+  const coneMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+  cone = new THREE.Mesh(coneGeometry, coneMaterial);
+  cone.position.x = 3;
+  scene.add(cone);
 
   window.addEventListener("resize", onWindowResize);
 }
@@ -50,8 +50,8 @@ function animate() {
   cylinder.rotation.x += 0.01;
   cylinder.rotation.y += 0.01;
 
-  pyramid.rotation.x += 0.01;
-  pyramid.rotation.y += 0.01;
+  cone.rotation.x += 0.01;
+  cone.rotation.y += 0.01;
 
   renderer.render(scene, camera);
 }
